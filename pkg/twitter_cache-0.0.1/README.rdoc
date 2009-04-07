@@ -1,0 +1,68 @@
+= twitter_cache
+
+== DESCRIPTION:
+
+A simple library for retrieving and updating a twitter user timeline stored in memcached.
+
+Allows you to update the local cache of your twitter user timeline asynchronously using a rake task. This means that page load time is not affected by contacting twitter.
+
+In production use on http://lucidity.ie.
+
+== FEATURES/PROBLEMS:
+
+* assumes you are using memcached for caching
+* only supports user timelines - not any other twitter feature
+
+== USAGE:
+
+# retrieval
+require 'twitter_cache'
+@statuses = TwitterCache.user_timeline(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
+          :limit => 2, :key => 'twitter_cache')
+
+# updating
+result = TwitterCache.update_user_timeline_cache(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
+          :limit => 2, :key => 'twitter_cache')
+
+# updating via rake task
+# move rake task to lib/tasks
+# assumes memcached configuration is in config/initializers/memcached.rb
+# assumes twitter configuration is in config/initializers/twitter.rb
+rake twitter:update
+
+== REQUIREMENTS:
+
+gem install twitter
+
+== INSTALL:
+
+=== via github
+git clone git://github.com/luciditytech/twitter_cache.git
+
+=== via gem
+gem install luciditytech-twitter_cache
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Lucidity Technologies
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
