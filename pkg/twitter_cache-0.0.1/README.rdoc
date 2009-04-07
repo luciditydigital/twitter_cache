@@ -6,7 +6,7 @@ A simple library for retrieving and updating a twitter user timeline stored in m
 
 Allows you to update the local cache of your twitter user timeline asynchronously using a rake task. This means that page load time is not affected by contacting twitter.
 
-In production use on http://lucidity.ie.
+In production use on http://www.lucidity.ie.
 
 == FEATURES/PROBLEMS:
 
