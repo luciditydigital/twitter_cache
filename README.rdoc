@@ -15,32 +15,32 @@ In production use on http://lucidity.ie.
 
 == USAGE:
 
-# retrieval
-require 'twitter_cache'
-@statuses = TwitterCache.user_timeline(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
+  # retrieval
+  require 'twitter_cache'
+  @statuses = TwitterCache.user_timeline(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
           :limit => 2, :key => 'twitter_cache')
 
-# updating
-result = TwitterCache.update_user_timeline_cache(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
+  # updating
+  result = TwitterCache.update_user_timeline_cache(TWITTER_USERNAME, TWITTER_PASSWORD, CACHE,
           :limit => 2, :key => 'twitter_cache')
 
-# updating via rake task
-# move rake task to lib/tasks
-# assumes memcached configuration is in config/initializers/memcached.rb
-# assumes twitter configuration is in config/initializers/twitter.rb
-rake twitter:update
+  # updating via rake task
+  # move rake task to lib/tasks
+  # assumes memcached configuration is in config/initializers/memcached.rb
+  # assumes twitter configuration is in config/initializers/twitter.rb
+  rake twitter:update
 
 == REQUIREMENTS:
 
-gem install twitter
+  gem install twitter
 
 == INSTALL:
 
 === via github
-git clone git://github.com/luciditytech/twitter_cache.git
+  git clone git://github.com/luciditytech/twitter_cache.git
 
 === via gem
-gem install luciditytech-twitter_cache
+  gem install luciditytech-twitter_cache
 
 == LICENSE:
 
